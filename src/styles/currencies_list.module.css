@@ -1,0 +1,43 @@
+.currencies {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.currencies_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    text-align: center;
+    border: 1px solid forestgreen;
+    font-weight: 500;
+    margin-bottom: 10px;
+    box-shadow: 0 0 2px gray;
+    padding: 4px 0;
+    border-radius: 2px;
+}
+
+.currencies_item__numcode {
+    color: darkseagreen;
+}
+
+.currency_positive {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: green;
+    width: 80px;
+}
+
+.currency_negative {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: red;
+    width: 80px;
+}
+.currency_negative img {
+    transform: rotate(180deg);
+}
