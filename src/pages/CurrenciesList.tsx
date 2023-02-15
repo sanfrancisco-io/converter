@@ -16,7 +16,7 @@ const CurrenciesList = (props: Props) => {
     }, []);
 
     const currencyFilter = (item: ICurrencies) => {
-        const filteredItem = item.Name + item.NumCode;
+        const filteredItem = item.Name + item.NumCode + item.CharCode;
         if (filteredItem.toLowerCase().includes(value.toLowerCase()))
             return item;
     };

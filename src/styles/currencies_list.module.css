@@ -4,18 +4,24 @@
     justify-content: space-between;
     flex-direction: column;
 }
-
-.currencies_wrapper {
+.currencies_first_floor {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 10px;
+}
+.currencies_second_floor {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.currencies_wrapper {
+    padding: 5px 10px;
     width: 40%;
-    text-align: center;
-    border: 1px solid forestgreen;
+    border: 2px solid forestgreen;
     font-weight: 500;
     margin-bottom: 10px;
     box-shadow: 0 0 2px gray;
-    padding: 4px 0;
     border-radius: 2px;
 }
 
