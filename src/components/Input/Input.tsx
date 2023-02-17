@@ -7,13 +7,17 @@ type Props = {
 };
 
 const Input = ({ value, setValue, disabled }: Props) => {
+    const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (!isNaN(+e.target.value)) {
+            setValue(+e.target.value);
+        }
+    };
     return (
         <input
             className={classes.converter_input}
-            type={'number'}
             value={value}
             disabled={disabled}
-            onChange={(e) => setValue(+e.target.value)}
+            onChange={change}
         />
     );
 };
