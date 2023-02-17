@@ -8,7 +8,6 @@ type Props = { currency: ICurrencies };
 
 const CurrenciesItem = ({ currency }: Props) => {
     const { baseValues, getBaseValues }: any = useContext(currencyContext);
-    console.log(baseValues);
 
     useEffect(() => {
         getBaseValues();

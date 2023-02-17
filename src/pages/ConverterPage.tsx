@@ -8,12 +8,28 @@ import { Input } from '../components/Input';
 
 type Props = {};
 
+const firstCurrValFromLocal = JSON.parse(
+    localStorage.getItem('firstCurrVal') || '1'
+);
+
+const fromCurrOptionFromLocal = JSON.parse(
+    localStorage.getItem('fromCurrOption') || 'AUD'
+);
+
+const secondToValFromLocal = JSON.parse(
+    localStorage.getItem('toCurrOption') || 'AZN'
+);
+
 const ConverterPage = (props: Props) => {
     const { currencies, getCurrencies }: any = useContext(currencyContext);
 
-    const [firstCurrVal, setFirstCurrVal] = useState<number>(1);
-    const [fromCurrOption, setFromCurrOption] = useState('AUD');
-    const [toCurrOption, setToCurrOption] = useState('AZN');
+    const [firstCurrVal, setFirstCurrVal] = useState<number>(
+        +firstCurrValFromLocal
+    );
+    const [fromCurrOption, setFromCurrOption] = useState(
+        fromCurrOptionFromLocal
+    );
+    const [toCurrOption, setToCurrOption] = useState(secondToValFromLocal);
     const [secondCurrVal, setSecondCurrVal] = useState<number>(1);
 
     useEffect(() => {
@@ -43,6 +59,10 @@ const ConverterPage = (props: Props) => {
         setSecondCurrVal(
             +(oneCurrencyNominal / secondOneCurrencyNominal).toFixed(2)
         );
+
+        localStorage.setItem('fromCurrOption', JSON.stringify(fromCurrOption));
+        localStorage.setItem('toCurrOption', JSON.stringify(toCurrOption));
+        localStorage.setItem('firstCurrVal', JSON.stringify(firstCurrVal));
     };
 
     const swapStateBetweenCurrencies = () => {
@@ -57,11 +77,13 @@ const ConverterPage = (props: Props) => {
     };
 
     useEffect(() => {
-        setTimeout(
+        const x = setTimeout(
             () => converter(firstCurrVal, fromCurrOption, toCurrOption),
             500
         );
-    }, [firstCurrVal, fromCurrOption, toCurrOption]);
+
+        return () => clearTimeout(x);
+    }, [firstCurrVal, fromCurrOption, toCurrOption, currencies.length]);
 
     return (
         <div className={classes.converter}>

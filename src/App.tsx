@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ConverterPage from './pages/ConverterPage';
 import CurrenciesList from './pages/CurrenciesList';
