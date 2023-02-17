@@ -24,9 +24,15 @@ const CurrenciesList = (props: Props) => {
     return (
         <div className={classes.currencies}>
             <Search value={value} setValue={setValue} />
-            {currencies.filter(currencyFilter).map((item: ICurrencies) => (
-                <CurrenciesItem key={item.ID} currency={item} />
-            ))}
+            {currencies.length ? (
+                currencies
+                    .filter(currencyFilter)
+                    .map((item: ICurrencies) => (
+                        <CurrenciesItem key={item.ID} currency={item} />
+                    ))
+            ) : (
+                <span>loading...</span>
+            )}
         </div>
     );
 };

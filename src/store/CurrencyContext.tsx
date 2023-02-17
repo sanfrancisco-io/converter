@@ -5,7 +5,9 @@ export const currencyContext = React.createContext({});
 
 const initialState = {
     currencies: [],
-    base_value: null,
+    base_value: {},
+    loading: false,
+    error: null,
 };
 
 const reducer = (state = initialState, action: any) => {
