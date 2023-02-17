@@ -12,6 +12,7 @@ const Input = ({ value, setValue, disabled }: Props) => {
             setValue(+e.target.value);
         }
     };
+
     return (
         <input
             className={classes.converter_input}
